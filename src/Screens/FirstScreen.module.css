@@ -8,10 +8,6 @@
     position: relative; /* Asegúrate de que el contenedor sea relativo */
 }
 
-body {
-    background-color: #FCE4EC;
-}
-
 .bienvenida {
     font-size: 30px;
 }

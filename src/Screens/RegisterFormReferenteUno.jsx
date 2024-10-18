@@ -2,29 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Styles from "./RegisterFormReferenteUno.module.css";
 
-// Opciones de municipios y tipos de discapacidad
-const municipiosAguascalientes = [
-    "Aguascalientes",
-    "Asientos",
-    "Calvillo",
-    "Cosío",
-    "El Llano",
-    "Pabellón de Arteaga",
-    "Rincón de Romos",
-    "San Francisco de los Romo",
-    "San José de Gracia",
-    "Tepezalá"
-];
-
-const tiposDiscapacidad = [
-    "Visual",
-    "Auditiva",
-    "Motora",
-    "Intelectual",
-    "Psicosocial",
-    "No tengo ninguna"
-];
-
 function RegisterFormReferenteUno() {
     const navigate = useNavigate(); // Hook de navegación
     const [formData, setFormData] = useState({
@@ -33,11 +10,6 @@ function RegisterFormReferenteUno() {
         apellidoMaterno: '',
         telefono: '',
         edad: '',
-        codigoPostal: '',
-        direccion: '',
-        numeroCasa: '',
-        discapacidad: '',
-        municipio: ''
     });
 
     // Manejador para cambios en los inputs
@@ -130,77 +102,6 @@ function RegisterFormReferenteUno() {
                             />
                         </div>
                     </div>
-                    <div className={Styles.FormField}>
-                        <label htmlFor="municipio">Municipio</label>
-                        <select
-                            name="municipio"
-                            id="municipio"
-                            value={formData.municipio}
-                            onChange={handleChange}
-                        >
-                            <option value="">Seleccione un municipio</option>
-                            {municipiosAguascalientes.map((municipio, index) => (
-                                <option key={index} value={municipio}>{municipio}</option>
-                            ))}
-                        </select>
-                    </div>
-                    <div className={Styles.FormRow}>
-                        <div className={Styles.FormField}>
-                            <label htmlFor="codigoPostal">Código Postal</label>
-                            <input
-                                type="text"
-                                name="codigoPostal"
-                                id="codigoPostal"
-                                maxLength="5"
-                                value={formData.codigoPostal}
-                                onChange={(e) => {
-                                    const value = e.target.value.replace(/[^0-9]/g, ''); // Solo números
-                                    if (value.length <= 5) {
-                                        setFormData((prevData) => ({ ...prevData, codigoPostal: value }));
-                                    }
-                                }}
-                            />
-                        </div>
-                        <div className={Styles.FormField}>
-                            <label htmlFor="numeroCasa">Número de Casa</label>
-                            <input
-                                type="text"
-                                name="numeroCasa"
-                                id="numeroCasa"
-                                maxLength="10"
-                                value={formData.numeroCasa}
-                                onChange={handleChange}
-                            />
-                        </div>
-                    </div>
-
-                    <div className={Styles.FormField}>
-                        <label htmlFor="direccion">Dirección</label>
-                        <input
-                            type="text"
-                            name="direccion"
-                            id="direccion"
-                            maxLength="100"
-                            value={formData.direccion}
-                            onChange={handleChange}
-                        />
-                    </div>
-
-                    <div className={Styles.FormField}>
-                        <label htmlFor="discapacidad">Discapacidad</label>
-                        <select
-                            name="discapacidad"
-                            id="discapacidad"
-                            value={formData.discapacidad}
-                            onChange={handleChange}
-                        >
-                            <option value="">Seleccione una opción</option>
-                            {tiposDiscapacidad.map((tipo, index) => (
-                                <option key={index} value={tipo}>{tipo}</option>
-                            ))}
-                        </select>
-                    </div>
-
                     <div className={Styles.botones}>
                         <button type="submit">Siguiente</button>
                     </div>
