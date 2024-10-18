@@ -1,11 +1,14 @@
 .Header{
     display: flex;
+    align-items: center;
     justify-content: center;
     width: 100%;
-    height: 10vh;
-
+    height: 12vh;
+    background-color: var(--alternative-bg-color);
+    box-shadow: 1px 1px 5px var(--secondary-color);
 }
 .Header img {
+    height: 80%;
     width: 50px;
     object-fit: cover;
 }

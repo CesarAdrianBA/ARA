@@ -4,7 +4,7 @@ import Styles from "./Header.module.css";
 const Header = () => {
     return(
         <div className={Styles.Header}>
-            <img src="/logoPlaceHolder.png"/>
+            <img src="/ARA.png"/>
         </div>
     )
 }

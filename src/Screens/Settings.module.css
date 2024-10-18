@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: black;
+    background-color: var(--contrast-color);
     min-height: 100vh;
 }
 .botonSalir{
@@ -22,4 +22,14 @@
     height: 50vh;
     width: 100%;
     padding: 0;
+    list-style: none;
+}
+.lista li a{
+    font-size: large;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 5px var(--pink-color);
+}
+.lista li a:hover{
+    color: var(--pink-color);
 }
