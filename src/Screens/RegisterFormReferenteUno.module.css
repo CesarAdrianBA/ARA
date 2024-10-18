@@ -1,0 +1,122 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+
+h1 {
+    color: #000000;
+}
+
+input,
+select {
+    background-color: #DCE5EA;
+    border-radius: 100px;
+    border: 1px solid #DCE5EA;
+    color: #000000;
+    font-size: 16px;
+    width: 100%;
+    padding: 19px 15px;
+    box-sizing: border-box; /* Incluye el padding y el borde en el cálculo del ancho */
+}
+
+label {
+    font-size: 16px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 1em;
+    width: 80%;
+}
+
+.formContainer form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 95%;
+    min-height: 60vh;
+}
+
+.FormField {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.FormField label {
+    margin: 8px 0;
+}
+
+.FormField input,
+.FormField select {
+    height: 2em; /* Asegura que el input y el select tengan la misma altura */
+    margin: 0 0 12px 0;
+}
+
+.botones {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 3em;
+}
+
+.botones button {
+    margin-top: 22px;
+    font-size: large;
+    border-radius: 100px;
+    width: 100%;
+    height: 100%;
+    background-color: #cc0000;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: solid 2px white;
+}
+
+.botones button:hover {
+    background-color: #FF3A3A;
+    border: solid 2px black;
+}
+
+.FormRow {
+    display: flex;
+    gap: 5%;
+    width: 100%; /* Asegúrate de que ocupe todo el ancho del contenedor */
+}
+
+.FormFieldTelefono {
+    flex: 0 0 65%; /* Ancho fijo del 65% */
+}
+
+.FormFieldEdad {
+    flex: 0 0 30%; /* Ancho fijo del 30% */
+}
+
+.RadioGroup input[type="radio"] {
+    width: 16px; /* Ajusta este valor para hacer los radio buttons más pequeños o más grandes */
+    height: 16px;
+    font-size: 10px;
+    margin: 0; /* Elimina cualquier margen adicional */
+}
+
+.RadioGroup {
+    display: flex;
+    gap: 15px; /* Espacio entre las opciones */
+    justify-content: center; /* Centra las opciones horizontalmente */
+    align-items: center; /* Alinea verticalmente el contenido */
+}
+
+.RadioGroup label {
+    font-size: 13px;
+    display: flex;
+    align-items: center; /* Alinea cada radio button y su texto verticalmente */
+    gap: 5px; /* Espacio entre el radio button y el texto */
+}

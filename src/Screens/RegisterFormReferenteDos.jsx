@@ -25,7 +25,7 @@ const tiposDiscapacidad = [
     "No tengo ninguna"
 ];
 
-function RegisterFormReferenteUno() {
+function RegisterFormReferenteDos() {
     const navigate = useNavigate(); // Hook de navegación
     const [formData, setFormData] = useState({
         nombres: '',
@@ -59,8 +59,8 @@ function RegisterFormReferenteUno() {
         <div className={Styles.container}>
             <div className={Styles.formContainer}>
                 <form onSubmit={handleSubmit}>
-                    <h1>Agrega a un Referente</h1>
-                    <h3>Asegurate que sea una persona de confianza</h3>
+                    <h1>Agrega a un segundo Referente</h1>
+                    <h3>Tu seguridad es nuestra prioridad</h3>
                     <div className={Styles.FormField}>
                         <label htmlFor="nombres">Nombre(s)</label>
                         <input
@@ -210,4 +210,4 @@ function RegisterFormReferenteUno() {
     );
 }
 
-export default RegisterFormReferenteUno;
+export default RegisterFormReferenteDos;

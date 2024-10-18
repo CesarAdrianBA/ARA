@@ -33,16 +33,16 @@ h1 {
     font-weight: bold;
     width: 40%;
     height: 100%;
-    background-color: #E57373;
+    background-color: #cc0000;
     color: white;
     border: solid 2px white;
     transition: background-color 0.3s;
 }
 
 .botones button:hover {
-    background-color: #258bf8;
+    background-color: #FF3A3A;
+    border: solid 2px black;
 }
-
 img {
     width: 50%;
 }
