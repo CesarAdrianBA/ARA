@@ -40,6 +40,8 @@ function RegisterForm() {
         municipio: ''
     });
 
+    const [loading, setLoading] = useState(false); // Estado para el loader
+
     // Manejador para cambios en los inputs
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -52,7 +54,10 @@ function RegisterForm() {
     // Manejador para envío del formulario
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/RegisterFormReferenteUno'); // Redirige a otra página
+        setLoading(true); // Mostrar el loader
+        setTimeout(() => {
+            navigate('/RegisterFormReferenteUno'); // Redirige a otra página después de la simulación de carga
+        }, 2000); // 2 segundos de simulación de carga
     };
 
     return (
@@ -201,7 +206,16 @@ function RegisterForm() {
                     </div>
 
                     <div className={Styles.botones}>
-                        <button type="submit">Siguiente</button>
+                        {loading ? (
+                            <div className={Styles.loaderContainer}>
+                                <div className={Styles.loader}>
+                                    <div className={Styles.spinner}></div>
+                                    <p>Cargando...</p>
+                                </div>
+                            </div>
+                        ) : (
+                            <button type="submit">Siguiente</button>
+                        )}
                     </div>
                 </form>
             </div>

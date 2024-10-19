@@ -2,28 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Styles from "./RegisterFormReferenteUno.module.css";
 
-// Opciones de municipios y tipos de discapacidad
-const municipiosAguascalientes = [
-    "Aguascalientes",
-    "Asientos",
-    "Calvillo",
-    "Cosío",
-    "El Llano",
-    "Pabellón de Arteaga",
-    "Rincón de Romos",
-    "San Francisco de los Romo",
-    "San José de Gracia",
-    "Tepezalá"
-];
-
-const tiposDiscapacidad = [
-    "Visual",
-    "Auditiva",
-    "Motora",
-    "Intelectual",
-    "Psicosocial",
-    "No tengo ninguna"
-];
 
 function RegisterFormReferenteDos() {
     const navigate = useNavigate(); // Hook de navegación
@@ -32,13 +10,10 @@ function RegisterFormReferenteDos() {
         apellidoPaterno: '',
         apellidoMaterno: '',
         telefono: '',
-        edad: '',
-        codigoPostal: '',
-        direccion: '',
-        numeroCasa: '',
-        discapacidad: '',
-        municipio: ''
-    });
+        edad: ''
+     });
+
+    const [loading, setLoading] = useState(false); // Estado para el loader
 
     // Manejador para cambios en los inputs
     const handleChange = (e) => {
@@ -49,10 +24,13 @@ function RegisterFormReferenteDos() {
         }));
     };
 
-    // Manejador para envío del formulario
+    // Manejador para el envío del formulario
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/RegisterFormReferenteDos'); // Redirige a otra página
+        setLoading(true); // Mostrar el loader
+        setTimeout(() => {
+            navigate('/home'); // Redirige a otra página después de la simulación de carga
+        }, 2000); // 2 segundos de simulación de carga
     };
 
     return (
@@ -61,6 +39,7 @@ function RegisterFormReferenteDos() {
                 <form onSubmit={handleSubmit}>
                     <h1>Agrega a un segundo Referente</h1>
                     <h3>Tu seguridad es nuestra prioridad</h3>
+                    
                     <div className={Styles.FormField}>
                         <label htmlFor="nombres">Nombre(s)</label>
                         <input
@@ -72,6 +51,7 @@ function RegisterFormReferenteDos() {
                             onChange={handleChange}
                         />
                     </div>
+
                     <div className={Styles.FormRow}>
                         <div className={Styles.FormField}>
                             <label htmlFor="apellidoPaterno">Apellido paterno</label>
@@ -96,6 +76,7 @@ function RegisterFormReferenteDos() {
                             />
                         </div>
                     </div>
+
                     <div className={Styles.FormRow}>
                         <div className={`${Styles.FormField} ${Styles.FormFieldTelefono}`}>
                             <label htmlFor="telefono">Teléfono</label>
@@ -103,7 +84,6 @@ function RegisterFormReferenteDos() {
                                 type="tel"
                                 name="telefono"
                                 id="telefono"
-                                maxLength="10"
                                 value={formData.telefono}
                                 onChange={(e) => {
                                     const value = e.target.value.replace(/[^0-9]/g, ''); // Solo números
@@ -111,6 +91,7 @@ function RegisterFormReferenteDos() {
                                         setFormData((prevData) => ({ ...prevData, telefono: value }));
                                     }
                                 }}
+                                maxLength="10"
                             />
                         </div>
                         <div className={`${Styles.FormField} ${Styles.FormFieldEdad}`}>
@@ -119,90 +100,28 @@ function RegisterFormReferenteDos() {
                                 type="number"
                                 name="edad"
                                 id="edad"
-                                maxLength="3"
                                 value={formData.edad}
                                 onChange={(e) => {
                                     const value = e.target.value.replace(/[^0-9]/g, ''); // Solo números
-                                    if (value.length <= 3) {
+                                    if (value >= 0 && value <= 120) { // Validación de edad entre 0 y 120
                                         setFormData((prevData) => ({ ...prevData, edad: value }));
                                     }
                                 }}
                             />
                         </div>
                     </div>
-                    <div className={Styles.FormField}>
-                        <label htmlFor="municipio">Municipio</label>
-                        <select
-                            name="municipio"
-                            id="municipio"
-                            value={formData.municipio}
-                            onChange={handleChange}
-                        >
-                            <option value="">Seleccione un municipio</option>
-                            {municipiosAguascalientes.map((municipio, index) => (
-                                <option key={index} value={municipio}>{municipio}</option>
-                            ))}
-                        </select>
-                    </div>
-                    <div className={Styles.FormRow}>
-                        <div className={Styles.FormField}>
-                            <label htmlFor="codigoPostal">Código Postal</label>
-                            <input
-                                type="text"
-                                name="codigoPostal"
-                                id="codigoPostal"
-                                maxLength="5"
-                                value={formData.codigoPostal}
-                                onChange={(e) => {
-                                    const value = e.target.value.replace(/[^0-9]/g, ''); // Solo números
-                                    if (value.length <= 5) {
-                                        setFormData((prevData) => ({ ...prevData, codigoPostal: value }));
-                                    }
-                                }}
-                            />
-                        </div>
-                        <div className={Styles.FormField}>
-                            <label htmlFor="numeroCasa">Número de Casa</label>
-                            <input
-                                type="text"
-                                name="numeroCasa"
-                                id="numeroCasa"
-                                maxLength="10"
-                                value={formData.numeroCasa}
-                                onChange={handleChange}
-                            />
-                        </div>
-                    </div>
-
-                    <div className={Styles.FormField}>
-                        <label htmlFor="direccion">Dirección</label>
-                        <input
-                            type="text"
-                            name="direccion"
-                            id="direccion"
-                            maxLength="100"
-                            value={formData.direccion}
-                            onChange={handleChange}
-                        />
-                    </div>
-
-                    <div className={Styles.FormField}>
-                        <label htmlFor="discapacidad">Discapacidad</label>
-                        <select
-                            name="discapacidad"
-                            id="discapacidad"
-                            value={formData.discapacidad}
-                            onChange={handleChange}
-                        >
-                            <option value="">Seleccione una opción</option>
-                            {tiposDiscapacidad.map((tipo, index) => (
-                                <option key={index} value={tipo}>{tipo}</option>
-                            ))}
-                        </select>
-                    </div>
-
+                    
                     <div className={Styles.botones}>
-                        <button type="submit">Siguiente</button>
+                        {loading ? (
+                            <div className={Styles.loaderContainer}>
+                                <div className={Styles.loader}>
+                                    <div className={Styles.spinner}></div>
+                                    <p>Cargando...</p>
+                                </div>
+                            </div>
+                        ) : (
+                            <button type="submit">Siguiente</button>
+                        )}
                     </div>
                 </form>
             </div>

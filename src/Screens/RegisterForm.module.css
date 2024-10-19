@@ -120,3 +120,47 @@ label {
     align-items: center; /* Alinea cada radio button y su texto verticalmente */
     gap: 5px; /* Espacio entre el radio button y el texto */
 }
+
+/* Estilos para el Loader */
+.loaderContainer {
+    position: fixed; /* Hace que el loader cubra toda la pantalla */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.loader {
+    text-align: center;
+}
+
+.spinner {
+    border: 8px solid #E57373; /* Color del borde */
+    border-top: 8px solid #f48fb1; /* Color superior */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite; /* Animación de giro */
+}
+
+.loader p {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #d81860;
+}
+
+/* Animación de Giro */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
