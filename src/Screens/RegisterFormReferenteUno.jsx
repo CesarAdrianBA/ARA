@@ -2,29 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Styles from "./RegisterFormReferenteUno.module.css";
 
-// Opciones de municipios y tipos de discapacidad
-const municipiosAguascalientes = [
-    "Aguascalientes",
-    "Asientos",
-    "Calvillo",
-    "Cosío",
-    "El Llano",
-    "Pabellón de Arteaga",
-    "Rincón de Romos",
-    "San Francisco de los Romo",
-    "San José de Gracia",
-    "Tepezalá"
-];
-
-const tiposDiscapacidad = [
-    "Visual",
-    "Auditiva",
-    "Motora",
-    "Intelectual",
-    "Psicosocial",
-    "No tengo ninguna"
-];
-
 function RegisterFormReferenteUno() {
     const navigate = useNavigate(); // Hook de navegación
     const [formData, setFormData] = useState({
